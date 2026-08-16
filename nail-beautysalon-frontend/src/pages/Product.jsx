@@ -42,11 +42,11 @@ function Product() {
         }
     ];
 
-    // Search and category states
+
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
 
-    // Filter products
+
     const filteredProducts = products.filter((product) => {
 
         const matchesSearch =
@@ -65,7 +65,7 @@ function Product() {
 
             <Container>
 
-                {/* Products Introduction */}
+
                 <div className="products-header">
 
                     <p className="products-eyebrow">
@@ -84,7 +84,7 @@ function Product() {
                 </div>
 
 
-                {/* Search and Category Filter */}
+
                 <div className="product-filters">
 
                     <input
@@ -117,7 +117,7 @@ function Product() {
                 </div>
 
 
-                {/* Product Cards */}
+
                 <Row className="product-grid">
 
                     {filteredProducts.length > 0 ? (
