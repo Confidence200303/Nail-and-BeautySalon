@@ -431,9 +431,9 @@
 
 .in-stock,
 .low-stock {
-  font-size: 0.95rem;
-  font-weight: 500;
-  white-space: nowrap;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 .product-controls {
