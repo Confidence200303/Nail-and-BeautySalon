@@ -7,12 +7,18 @@ Date: 22 June 2026
 */
 
 
-import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
+import java.time.LocalDateTime;
+@Entity
 public class Appointment {
+    @Id
     private String appointmentId;
     private LocalDateTime dateTime;
     private String serviceSelected;
+    @OneToOne
     private Address address;
     private String notes;
     private String status;

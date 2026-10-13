@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, String> {
-    List<Employee> findEmployeeBy(String email);
+    List<Employee> findEmployeeByEmail(String email);
 
-    String userId(String userId);
+    //String userId(String userId);
 }

@@ -1,7 +1,7 @@
 package za.ac.cput.nailbeautysalon.controller;
 /* EmployeeController.java
 EmployeeController class
-Author: Vincent Kanzi(221188932)
+Author: Vincent Kanzi(2)
 Date: 14 July 2026
 */
 
@@ -27,7 +27,7 @@ public class EmployeeController {
         return service.create(employee);
     }
 
-    @PostMapping("/read/{userId}")
+    @GetMapping("/read/{userId}")
     public Employee read(@PathVariable String userId){
         return service.read(userId);
     }

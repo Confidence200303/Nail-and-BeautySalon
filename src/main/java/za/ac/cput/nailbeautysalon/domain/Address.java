@@ -58,6 +58,17 @@ public class Address {
         return postalCode;
     }
 
+    public AddressId getAddressId() {
+        return new AddressId(
+                streetNumber,
+                streetName,
+                city,
+                suburb,
+                province,
+                postalCode
+        );
+    }
+
     @Override
     public String toString() {
         return "Address{" +

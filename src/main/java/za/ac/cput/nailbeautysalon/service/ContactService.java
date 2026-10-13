@@ -3,6 +3,7 @@ package za.ac.cput.nailbeautysalon.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.nailbeautysalon.domain.Address;
+import za.ac.cput.nailbeautysalon.domain.AddressId;
 import za.ac.cput.nailbeautysalon.domain.Contact;
 import za.ac.cput.nailbeautysalon.repository.ContactRepository;
 
@@ -25,8 +26,8 @@ public class ContactService implements IContactService{
     }
 
     @Override
-    public Contact read(Address id) {
-        return repository.findById(id).orElse(null);
+    public Contact read(Address address) {
+        return repository.findById(address.getAddressId()).orElse(null);
     }
 
     @Override
@@ -35,7 +36,9 @@ public class ContactService implements IContactService{
     }
 
     @Override
-    public boolean delete(Address id) {
+    public boolean delete(Address address) {
+        AddressId id = address.getAddressId();
+
         if (repository.existsById(id)) {
             repository.deleteById(id);
             return true;

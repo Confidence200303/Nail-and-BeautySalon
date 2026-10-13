@@ -12,7 +12,7 @@ import za.ac.cput.nailbeautysalon.domain.Contact;
 import za.ac.cput.nailbeautysalon.service.ContactService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/contact")
 public class ContactController {
     private ContactService service;
 

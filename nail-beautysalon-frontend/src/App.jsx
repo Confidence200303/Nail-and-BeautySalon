@@ -9,8 +9,8 @@ import EmployeeDashboard from './pages/EmployeeDashboard';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Product from './pages/Product';
-import ServiceCatalogue from './Service/ServiceCatalogue.jsx';
-import ServiceManagement from './Service/ServiceManagement.jsx';
+import ServiceCatalogue from './pages/ServiceCatalogue.jsx';
+import ServiceManagement from './pages/ServiceManagement.jsx';
 
 function App() {
     return (

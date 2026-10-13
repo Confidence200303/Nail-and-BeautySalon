@@ -5,13 +5,35 @@ package za.ac.cput.nailbeautysalon.domain;
    Date: 22 June 2026 */
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.OneToOne;
 
 import java.time.LocalTime;
 
 @Entity
+@IdClass(AddressId.class)
 public class Contact {
+
     @Id
+    private String streetNumber;
+
+    @Id
+    private String streetName;
+
+    @Id
+    private String city;
+
+    @Id
+    private String suburb;
+
+    @Id
+    private String province;
+
+    @Id
+    private int postalCode;
+
     @OneToOne
     private Address address;
     private String phone;
@@ -22,6 +44,16 @@ public class Contact {
 
     public Contact(Builder builder){
         this.address = builder.address;
+
+        if (builder.address != null) {
+            this.streetNumber = builder.address.getStreetNumber();
+            this.streetName = builder.address.getStreetName();
+            this.city = builder.address.getCity();
+            this.suburb = builder.address.getSuburb();
+            this.province = builder.address.getProvince();
+            this.postalCode = builder.address.getPostalCode();
+        }
+
         this.hours = builder.hours;
         this.email = builder.email;
         this.phone = builder.phone;

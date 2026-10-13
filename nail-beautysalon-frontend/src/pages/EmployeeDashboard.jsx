@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -5,9 +7,56 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 import { useAuth } from '../context/AuthContext';
+import { getAllEmployees } from '../services/employeeService';
 
 function EmployeeDashboard() {
     const { user, logout } = useAuth();
+
+    // Store employees retrieved from the backend
+    const [employees, setEmployees] = useState([]);
+
+    // Track loading
+    const [loading, setLoading] = useState(true);
+
+    // Track errors
+    const [error, setError] = useState('');
+
+    // Runs when this page loads
+    useEffect(() => {
+
+        const loadEmployees = async () => {
+
+            try {
+                const response = await getAllEmployees();
+
+                console.log(
+                    'Employees received from backend:',
+                    response.data
+                );
+
+                setEmployees(response.data);
+
+            } catch (error) {
+
+                console.error(
+                    'Error retrieving employees:',
+                    error
+                );
+
+                setError(
+                    'Unable to retrieve employees from the server.'
+                );
+
+            } finally {
+
+                setLoading(false);
+
+            }
+        };
+
+        loadEmployees();
+
+    }, []);
 
     return (
         <main className="employee-dashboard">
