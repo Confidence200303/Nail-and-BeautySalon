@@ -6,6 +6,7 @@ package za.ac.cput.nailbeautysalon.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
+import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.OneToOne;
@@ -17,21 +18,27 @@ import java.time.LocalTime;
 public class Contact {
 
     @Id
+    @Column(length = 20)
     private String streetNumber;
 
     @Id
+    @Column(length = 100)
     private String streetName;
 
     @Id
+    @Column(length = 80)
     private String city;
 
     @Id
+    @Column(length = 80)
     private String suburb;
 
     @Id
+    @Column(length = 60)
     private String province;
 
     @Id
+    @Column(length = 20)
     private int postalCode;
 
     @OneToOne

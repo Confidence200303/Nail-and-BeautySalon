@@ -141,6 +141,63 @@ function EmployeeDashboard() {
 
                 </Row>
 
+                
+<hr className="my-4" />
+
+<h2 className="mb-3">Salon Employees</h2>
+
+{loading && <p>Loading employees...</p>}
+
+{error && (
+    <p className="text-danger" role="alert">
+        {error}
+    </p>
+)}
+
+{!loading && !error && (
+    <Row className="g-4">
+        {employees.length === 0 ? (
+            <Col>
+                <p>No employees were found.</p>
+            </Col>
+        ) : (
+            employees.map((employee) => (
+                <Col md={6} lg={4} key={employee.userId}>
+                    <Card className="dashboard-card h-100">
+                        <Card.Body>
+                            <h5>
+                                {employee.firstName}{' '}
+                                {employee.lastName}
+                            </h5>
+
+                            {/* <p>
+                                <strong>Employee ID:</strong>{' '}
+                                {employee.employeeId}
+                            </p> */}
+
+                            <p>
+                                <strong>Email:</strong>{' '}
+                                {employee.email}
+                            </p>
+
+                            <p>
+                                <strong>Cell:</strong>{' '}
+                                {employee.cellNumber}
+                            </p>
+
+                            <p>
+                                <strong>Role:</strong>{' '}
+                                {employee.role}
+                            </p>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            ))
+        )}
+    </Row>
+)}
+
+
             </Container>
 
         </main>
